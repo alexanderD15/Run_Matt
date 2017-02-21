@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-group description="" sid="672633937581879" title="Player Controls" />
+        <event-block sid="635745156795301">
+            <conditions>
+                <condition id="2" name="Key is down" sid="168678965198302" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="722920588489867" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="870390808334708">
+            <conditions>
+                <condition id="2" name="Key is down" sid="820529570495822" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="968402241604999" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="404114259711858">
+            <conditions>
+                <condition id="2" name="Key is down" sid="492319390528921" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="950499491529673" type="Player">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="970451065058587">
+            <conditions>
+                <condition id="2" name="Key is down" sid="966419052466975" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="568297425486625" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="534762680116554">
+            <conditions>
+                <condition id="2" name="Key is down" sid="895572761688061" type="Keyboard">
+                    <param id="0" name="Key">70 (F)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="1" name="Unpin" sid="218435556277131" type="skull" />
+                <action behavior="Pin" id="1" name="Unpin" sid="812630952768368" type="dimond" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="383646537084101" title="Camera " />
+        <event-block sid="296272608020573">
+            <conditions />
+            <actions />
+        </event-block>
+        <event-group description="" sid="520520648563043" title="Rock Roll" />
+        <event-block sid="304551293201192">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="586743766097294" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="642647392392962" type="Rock">
+                    <param id="0" name="X">RockEnd.X</param>
+                    <param id="1" name="Y">RockEnd.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="720402863974944">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="725987898381529" type="Rock" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="148933107928963" type="Rock" />
+            </actions>
+        </event-block>
+        <event-block sid="758604785081383">
+            <conditions>
+                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="542863482869815" type="Rock" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="480367076357841" type="Rock">
+                    <param id="0" name="X">RockEnd.X</param>
+                    <param id="1" name="Y">RockEnd.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="250005355156541" title="Game Stuff" />
+        <event-block sid="998815707863388">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="430157133500290" type="Rock">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="914153157297978" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="588032689179509">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="860432066631311" type="Player">
+                    <param id="0" name="Object">skull</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="649178824859287" type="skull">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="113265075359810" type="skull">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="994340522631635">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="708171737931254" type="Player">
+                    <param id="0" name="Object">dimond</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="275630467781603" type="dimond">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="626063007377884" type="dimond">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="525354953189858">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="828667591936397" type="dimond">
+                    <param id="0" name="Object">dropDimond</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="427863082247126" type="Door" />
+                <action id="-9" name="Destroy" sid="931953312325799" type="dimond" />
+            </actions>
+        </event-block>
+        <event-block sid="849935225260981">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="112018066208923" type="skull">
+                    <param id="0" name="Object">dropDimond</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="935949163478824" type="Door">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="899280110890646">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="644288241844424" type="Player">
+                    <param id="0" name="Object">trigger</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="497698003124693" type="spikes">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="316218214923085">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="119371538881717" type="Player">
+                    <param id="0" name="Object">spikes</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="731481259424758" type="Player" />
+                <action id="-26" name="Restart layout" sid="462987451276275" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="766284734592136">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="941545363853971" type="bulletTrigger">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="1" name="Add object to target" sid="627804759172070" type="hole">
+                    <param id="0" name="Target">Player</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="441694055079462">
+            <conditions>
+                <condition behavior="Turret" id="1" name="On shoot" sid="995785517066291" type="hole" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="718091928687821" type="hole">
+                    <param id="0" name="Object">bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="123416324077075">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="341818505791135" type="Player">
+                    <param id="0" name="Object">bullet</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="618200411255376" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="779211507618994">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="518361591823164" type="bullet">
+                    <param id="0" name="Object">Ground</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="771392523380990" type="bullet" />
+            </actions>
+        </event-block>
+        <event-block sid="888119102245510">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="210702598681747" type="RockEnd">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="701449200437309" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
